@@ -13,9 +13,12 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         caches
             .open(PRECACHE)
-            .then((cache) => cache.addAll(FILES_TO_CACHE))
-            .then(self.skipWaiting())
+            .then((cache) => {
+                cache.addAll(FILES_TO_CACHE);
+                console.log("Your files were pre-cached succefully");
+            })
     );
+    self.skipWaiting()
 });
 
 // The activate handler takes care of cleaning up old caches.
