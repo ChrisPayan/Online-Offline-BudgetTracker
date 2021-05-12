@@ -10,9 +10,7 @@ In this project we explore how to set up offline caches so if a user adds a tran
 ## Installation
 N/A
 ## Usage
-N/A
-
-    screenshot
+Please visit the online application to get started at https://on-off-budgetapp.herokuapp.com/
 
 ## Credits
 
