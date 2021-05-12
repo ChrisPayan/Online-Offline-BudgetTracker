@@ -1,10 +1,7 @@
 let db;
-// create a new db request for a "BudgetDB" database.
-const request = window.indexedDB.open('BudgetDB', 1);
+const request = window.indexedDB.open('budget', 1);
 
-// TODO: setup database with BudgetStore object store.
 request.onupgradeneeded = function (event) {
-    // create object store called "BudgetStore" and set autoIncrement to true
     db = event.target.result;
 
     db.createObjectStore('Budget', {
@@ -26,10 +23,7 @@ request.onerror = function (event) {
     console.log(`⛔ ${e.target.errorCode}`);
 };
 
-// TODO: checkDatabase is called when the user goes online. This function should
-// get all items in the BudgetStore object store and send a request to the
-// backend to add them to the database. If the request is successful, all items
-// should be removed from the BudgetStore object store.
+
 function checkDatabase() {
     // open a transaction on your pending db
     const transaction = db.transaction(['Budget']);
@@ -63,7 +57,6 @@ function checkDatabase() {
     };
 }
 
-// TODO: saveRecord accepts a record object and saves it in the BudgetStore
 // object store
 function saveRecord(record) {
     // create a transaction on the pending db with readwrite access
